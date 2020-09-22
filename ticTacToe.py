@@ -1,0 +1,19 @@
+"""
+key:value
+a cool example how to access to a value.
+Get a value via key for example liek this
+board['top-L']
+"""
+theBoard = {'top-L':'X ', 'top-M':' ', 'top-R':' ',
+            'mid-L':' ', 'mid-M':' ', 'mid-R':' ',
+            'low-L':' ', 'low-M':' ', 'low-R':' '}
+
+def printBoard(board):
+ print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+ print('-+-+-')
+ print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+ print('-+-+-')
+ print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+ #print(theBoard)
+
+printBoard(theBoard)
