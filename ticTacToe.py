@@ -4,7 +4,7 @@ a cool example how to access to a value.
 Get a value via key for example liek this
 board['top-L']
 """
-theBoard = {'top-L':'X ', 'top-M':' ', 'top-R':' ',
+theBoard = {'top-L':' ', 'top-M':' ', 'top-R':' ',
             'mid-L':' ', 'mid-M':' ', 'mid-R':' ',
             'low-L':' ', 'low-M':' ', 'low-R':' '}
 
@@ -16,4 +16,14 @@ def printBoard(board):
  print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
  #print(theBoard)
 
+turn = 'X'
+for i in range(9):
+ printBoard(theBoard)
+ print('Turn for '+ turn +'. Move on which space?')
+ move = input()
+ theBoard[move] = turn
+ if turn == 'X':
+    turn = 'O'
+ else:
+    turn = 'X'
 printBoard(theBoard)
