@@ -19,3 +19,6 @@ print(found)
 # found[k] --> is value
 for k in found:
     print(k, 'was found ', found[k])
+
+#how to access to data/value
+print(found['a'])
