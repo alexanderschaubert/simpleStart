@@ -1,23 +1,41 @@
+# importing the required modules
 import timeit
 
-def binary_search(list, key):
-    """Returns the position of key in the list if found, -1 otherwise.
-    List must be sorted.
-    """
-    left = 0
-    right = len(list) - 1
-    while left <= right:
-        middle = (left + right) // 2
 
-        if list[middle] == key:
-            return middle
-        if list[middle] > key:
-            right = middle - 1
-        if list[middle] < key:
-            left = middle + 1
-    return -1
+# binary search function
+def binary_search(mylist, find):
+    while len(mylist) > 0:
+        mid = (len(mylist)) // 2
+        if mylist[mid] == find:
+            return True
+        elif mylist[mid] < find:
+            mylist = mylist[:mid]
+        else:
+            mylist = mylist[mid + 1:]
+    return False
 
-list=('A','B','C')
-starttime = timeit.default_timer()
-print(binary_search(list,'B'))
-print("The time difference is :", timeit.default_timer() - starttime)
+
+# compute binary search time
+def binary_time():
+    SETUP_CODE = ''' 
+from __main__ import binary_search 
+from random import randint'''
+
+    TEST_CODE = ''' 
+mylist = [x for x in range(10000)] 
+find = randint(0, len(mylist)) 
+binary_search(mylist, find)'''
+
+    # timeit.repeat statement
+    times = timeit.repeat(setup=SETUP_CODE,
+                          stmt=TEST_CODE,
+                          repeat=3,
+                          number=10000)
+
+    # priniting minimum exec. time
+    print('Binary search time: {}'.format(min(times)))
+
+
+
+if __name__ == "__main__":
+    binary_time()
